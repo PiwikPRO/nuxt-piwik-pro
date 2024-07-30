@@ -1,6 +1,6 @@
 # Piwik PRO Library for Nuxt
 
-Dedicated Piwik PRO library that helps with implementing Piwik PRO Tag Manager and the Piwik PRO tracking client in Nuxt applications.
+Dedicated Piwik PRO library that helps with implementing Piwik PRO Tag Manager, Piwik PRO Consent Manager and Piwik PRO tracking client in Nuxt applications.
 
 ## Installation
 
