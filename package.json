@@ -7,6 +7,17 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./composables": "./dist/composables/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "composables": [
+        "dist/composables/index.d.ts"
+      ]
+    }
+  },
   "source": "src/index.ts",
   "files": [
     "/dist"
