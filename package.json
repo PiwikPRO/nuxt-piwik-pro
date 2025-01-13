@@ -1,7 +1,7 @@
 {
   "name": "@piwikpro/nuxt-piwik-pro",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Dedicated Piwik PRO library that helps with implementing Piwik PRO Tag Manager and the Piwik PRO tracking client in Nuxt.js applications.",
   "type": "module",
   "main": "dist/index.js",
