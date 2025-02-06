@@ -1,6 +1,8 @@
 import { defineNuxtPlugin, useRuntimeConfig } from "nuxt/app";
-import PiwikPRO, * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
+import PiwikPRO from "@piwikpro/tracking-base-library";
+import * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
 import { PluginArgs, PiwikPROServicesType } from "../types";
+import { VERSION } from "../version";
 
 export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
   name: "piwik-pro",
@@ -10,6 +12,11 @@ export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
         const { public: publicConfig } = useRuntimeConfig();
         const { containerId, containerUrl, ...restOptions } =
           publicConfig as PluginArgs;
+
+        PiwikPROServices.Miscellaneous.setTrackingSourceProvider(
+          "nuxt",
+          VERSION
+        );
 
         PiwikPRO.initialize(containerId ?? "", containerUrl ?? "", restOptions);
       }
