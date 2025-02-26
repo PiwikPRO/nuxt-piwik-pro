@@ -23,12 +23,15 @@ const { $piwikPRO } = useNuxtApp();
 const cart = ref<Product[]>([]);
 
 const handleAddToCart = (product: Product) => {
-  $piwikPRO.eCommerce.ecommerceAddToCart([
-    {
-      ...product,
-      quantity: 1,
-    },
-  ]);
+  $piwikPRO.eCommerce.ecommerceAddToCart(
+    [
+      {
+        ...product,
+        quantity: 1,
+      },
+    ],
+    { currencyCode: "USD" }
+  );
 
   showToast("eCommerce.ecommerceAddToCart()");
 
@@ -57,12 +60,15 @@ const handleAddToCart = (product: Product) => {
 const handleRemoveFromCart = (product: Product) => {
   showToast("eCommerce.ecommerceRemoveFromCart()");
 
-  $piwikPRO.eCommerce.ecommerceRemoveFromCart([
-    {
-      ...product,
-      quantity: 1,
-    },
-  ]);
+  $piwikPRO.eCommerce.ecommerceRemoveFromCart(
+    [
+      {
+        ...product,
+        quantity: 1,
+      },
+    ],
+    { currencyCode: "USD" }
+  );
   cart.value = cart.value.filter((item) => item.sku !== product.sku);
 };
 
@@ -93,13 +99,17 @@ const handleCheckout = () => {
   };
 
   showToast("eCommerce.ecommerceOrder()");
-  $piwikPRO.eCommerce.ecommerceOrder(cart.value, paymentInformation);
+  $piwikPRO.eCommerce.ecommerceOrder(cart.value, paymentInformation, {
+    currencyCode: "USD",
+  });
 };
 
 const handleShowProductDetails = (product: Product) => {
   isModalVisible.value = true;
   chosenProduct.value = product;
-  $piwikPRO.eCommerce.ecommerceProductDetailView([product]);
+  $piwikPRO.eCommerce.ecommerceProductDetailView([product], {
+    currencyCode: "USD",
+  });
   showToast("eCommerce.ecommerceProductDetailView()");
 };
 </script>
