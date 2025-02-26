@@ -59,7 +59,9 @@ const showToast = (message: string) => {
       class="btn"
       @click="
         () => {
-          nuxtApp.$piwikPRO.GoalConversions.trackGoal(2, 40);
+          nuxtApp.$piwikPRO.GoalConversions.trackGoal(2, 40, undefined, {
+            currencyCode: 'USD',
+          });
           showToast('GoalConversions.trackGoal(2, 40)');
         }
       "
