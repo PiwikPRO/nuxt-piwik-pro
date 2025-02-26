@@ -9,7 +9,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist'],
+  ignorePatterns: ['dist',"scripts"],
   env: {
     browser: true,
     node: true,
