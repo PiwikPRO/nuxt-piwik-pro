@@ -41,7 +41,7 @@
   "author": "Piwik Pro Integration Team <integrations@piwik.pro>",
   "license": "MIT",
   "dependencies": {
-    "@piwikpro/vue-piwik-pro": "^1.3.0"
+    "@piwikpro/vue-piwik-pro": "^1.4.0"
   },
   "peerDependencies": {
     "nuxt": ">=3.0.0",
