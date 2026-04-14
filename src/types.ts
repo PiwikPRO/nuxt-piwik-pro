@@ -5,6 +5,7 @@ import { NuxtApp } from "nuxt/schema";
 export type PluginArgs = {
   containerId: string;
   containerUrl: string;
+  cspNonceBridge?: boolean;
 } & InitOptions;
 
 export type PiwikPROServicesType = typeof PiwikPROServices;
