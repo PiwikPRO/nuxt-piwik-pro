@@ -40,11 +40,11 @@ export default defineNuxtConfig({
 ##### Configuration options
 
 ```ts
-type ConfigOptions {
+type PluginArgs {
  containerId: string;
  containerUrl: string;
  dataLayerName?: string;
- nonce?: string;
+ cspNonceBridge?: boolean;
 }
 ```
 
@@ -52,7 +52,21 @@ type ConfigOptions {
 
 The nonce attribute is useful to allow-list specific elements, such as a particular inline script or style elements. It can help you to avoid using the CSP unsafe-inline directive, which would allow-list all inline scripts or styles.
 
-If you want your nonce to be passed to the script, pass it as the third argument when calling the script initialization method.
+This package provides an option, `cspNonceBridge`, that lets it retrieve the `nonce` attribute provided by plugins such as `nuxt-security` and apply it to the container.
+
+Example config:
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ["nuxt-security", "@piwikpro/nuxt-piwik-pro"],
+  piwikPro: {
+    containerId: process.env.PIWIK_PRO_CONTAINER_ID!,
+    containerUrl: process.env.PIWIK_PRO_CONTAINER_URL!,
+    cspNonceBridge: true,
+  },
+});
+```
 
 #### Usage
 
@@ -177,6 +191,7 @@ Please explore the `./example` directory to get to know how to use this package 
 - [PaymentInformation](#paymentinformation)
 - [PiwikPROHandler](#piwikprohandler)
 - [PiwikPROServicesType](#piwikproservicestype)
+- [PluginArgs](#pluginargs)
 - [Product](#product)
 - [VisitorInfo](#visitorinfo)
 
@@ -291,6 +306,12 @@ ___
 
 ___
 
+#### PluginArgs
+
+Ƭ **PluginArgs**: \{ `containerId`: `string` ; `containerUrl`: `string` ; `cspNonceBridge?`: `boolean`  } & [`InitOptions`](#initoptions)
+
+___
+
 #### Product
 
 Ƭ **Product**: `Object`
@@ -330,7 +351,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `this` | `void` |
-| `inlineOptions` | `PluginArgs` |
+| `inlineOptions` | [`PluginArgs`](#pluginargs) |
 | `nuxt` | `Nuxt` |
 
 ##### Returns
