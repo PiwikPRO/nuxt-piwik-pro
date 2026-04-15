@@ -6,7 +6,7 @@ import { PIWIK_PRO_NONCE_STATE_KEY } from "../constants";
 import { PluginArgs, PiwikPROServicesType } from "../types";
 import { VERSION } from "../version";
 
-type PublicPiwikConfig = Omit<PluginArgs, "nonce" | "cspNonceBridge"> & {
+type PublicPiwikConfig = Omit<PluginArgs, "cspNonceBridge"> & {
   piwikProCspNonceBridge?: boolean;
 };
 

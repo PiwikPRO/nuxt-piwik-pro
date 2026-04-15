@@ -16,11 +16,11 @@ export default defineNuxtModule<PluginArgs>({
       );
     }
 
-    const { nonce, cspNonceBridge, ...publicOptions } = options;
+    const { cspNonceBridge, nonce, ...publicOptions } = options;
 
     if (nonce !== undefined) {
       useLogger("piwik-pro").warn(
-        "The `nonce` module option is ignored: it cannot be a proper per-response CSP nonce when set in config. Use a per-request nonce (for example via nuxt-security) and enable `cspNonceBridge: true`. See module documentation."
+        "The `nonce` module option is not safe for CSP when set in static config: the same value is sent to every visitor and does not rotate per response. Prefer a per-request nonce (for example via nuxt-security) and `cspNonceBridge: true`."
       );
     }
 
