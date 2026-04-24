@@ -14,7 +14,7 @@
   "dependencies": {
     "@piwikpro/nuxt-piwik-pro": "file:../dist",
     "clipboard": "^2.0.11",
-    "nuxt": "^3.12.1",
+    "nuxt": "^3.21.1",
     "prismjs": "^1.29.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.3"
