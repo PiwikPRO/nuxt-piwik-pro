@@ -28,6 +28,12 @@ export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
           const bridged = useState<string>(PIWIK_PRO_NONCE_STATE_KEY).value;
           if (bridged) {
             initOptions = { ...restOptions, nonce: bridged };
+          } else {
+            if (import.meta.dev ?? false) {
+              console.warn(
+                "No nonce found for CSP nonce bridge. nuxt-security or another CSP nonce provider should be used with the cspNonceBridge option."
+              );
+            }
           }
         }
 
