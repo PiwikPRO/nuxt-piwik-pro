@@ -23,7 +23,6 @@ export default defineNuxtConfig({
         containerUrl:
           process.env.PIWIK_PRO_CONTAINER_URL ||
           "0a0b8661-8c10-4d59-e8fg-1h926ijkl184",
-        nonce: process.env.PIWIK_PRO_NONCE,
         dataLayerName: process.env.PIWIK_PRO_DATA_LAYER_NAME,
       },
     ],

@@ -19,7 +19,7 @@ const handlePiwikPRO = async <T = unknown>(
     );
   } else {
     console.warn(
-      "Piwik PRO is client only library and cannot be use in server side."
+      "Piwik PRO is a client only library and cannot be used in server side."
     );
   }
   return undefined;

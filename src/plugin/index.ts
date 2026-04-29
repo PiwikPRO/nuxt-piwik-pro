@@ -1,8 +1,14 @@
-import { defineNuxtPlugin, useRuntimeConfig } from "nuxt/app";
+import type { InitOptions } from "@piwikpro/vue-piwik-pro";
+import { defineNuxtPlugin, useRuntimeConfig, useState } from "nuxt/app";
 import PiwikPRO from "@piwikpro/tracking-base-library";
 import * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
+import { PIWIK_PRO_NONCE_STATE_KEY } from "../constants";
 import { PluginArgs, PiwikPROServicesType } from "../types";
 import { VERSION } from "../version";
+
+type PublicPiwikConfig = Omit<PluginArgs, "cspNonceBridge"> & {
+  piwikProCspNonceBridge?: boolean;
+};
 
 export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
   name: "piwik-pro",
@@ -10,15 +16,33 @@ export default defineNuxtPlugin<{ piwikPRO: PiwikPROServicesType }>({
     try {
       if (import.meta.client) {
         const { public: publicConfig } = useRuntimeConfig();
-        const { containerId, containerUrl, ...restOptions } =
-          publicConfig as PluginArgs;
+        const {
+          containerId,
+          containerUrl,
+          piwikProCspNonceBridge,
+          ...restOptions
+        } = publicConfig as PublicPiwikConfig;
+
+        let initOptions: InitOptions = { ...restOptions };
+        if (piwikProCspNonceBridge) {
+          const bridged = useState<string>(PIWIK_PRO_NONCE_STATE_KEY).value;
+          if (bridged) {
+            initOptions = { ...restOptions, nonce: bridged };
+          } else {
+            if (import.meta.dev ?? false) {
+              console.warn(
+                "No nonce found for CSP nonce bridge. nuxt-security or another CSP nonce provider should be used with the cspNonceBridge option."
+              );
+            }
+          }
+        }
 
         PiwikPROServices.Miscellaneous.setTrackingSourceProvider(
           "nuxt",
           VERSION
         );
 
-        PiwikPRO.initialize(containerId ?? "", containerUrl ?? "", restOptions);
+        PiwikPRO.initialize(containerId ?? "", containerUrl ?? "", initOptions);
       }
     } catch (err) {
       console.error(err);
