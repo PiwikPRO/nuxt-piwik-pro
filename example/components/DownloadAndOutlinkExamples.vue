@@ -112,6 +112,31 @@ onMounted(() => {
         @click="
           () =>
             usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.addDownloadClasses(['this-is-a-download']);
+              showToast(
+                'DownloadAndOutlink.addDownloadClasses([\'this-is-a-download\'])'
+              );
+            })
+        "
+      >
+        DownloadAndOutlink.addDownloadClasses
+      </button>
+      <button
+        class="btn mr-5 mt-5"
+        @click="
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
+              DownloadAndOutlink.removeDownloadClasses(['this-is-a-download']);
+            })
+        "
+      >
+        DownloadAndOutlink.removeDownloadClasses
+      </button>
+      <button
+        class="btn mr-5 mt-5"
+        @click="
+          () =>
+            usePiwikPro(({ DownloadAndOutlink }) => {
               DownloadAndOutlink.addDownloadExtensions(['rar']);
               showToast(
                 'DownloadAndOutlink.addDownloadExtensions - add RAR tracking'
@@ -184,6 +209,11 @@ onMounted(() => {
       <br />
       <a class="do-not-track" href="/files/example.xlsx"> Download XLSX </a> -
       download turned off by default using className
+      <br />
+      <a class="this-is-a-download" href="/files/example.xlsx">
+        Download XLSX
+      </a>
+      download turned on by default using className
     </div>
   </div>
   <Toast v-model="isToastVisible" :message="toastMessage" />
