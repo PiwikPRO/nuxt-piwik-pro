@@ -4,16 +4,11 @@ import { ref } from "vue";
 
 import { products } from "~/data/ecommerce";
 
-const toastMessage = ref("");
-const isToastVisible = ref(false);
 const pageData = {
   title: "ECommerce",
 };
 
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  isToastVisible.value = true;
-};
+const { add: showToast } = useToast();
 
 const isModalVisible = ref<boolean>(false);
 const chosenProduct = ref<Product | null>(null);
@@ -199,7 +194,6 @@ const handleShowProductDetails = (product: Product) => {
   <Modal v-model="isModalVisible" name="product-details">
     <ProductDetails v-if="chosenProduct" :product="chosenProduct" />
   </Modal>
-  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
 
 <style scoped></style>

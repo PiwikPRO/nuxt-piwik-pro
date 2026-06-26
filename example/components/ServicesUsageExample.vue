@@ -2,7 +2,7 @@
   <h2>Usage</h2>
   <div>
     <pre>    
-      <code class="lang-ts">
+      <code class="language-ts">
       import { handlePiwikPRO } from '@piwikpro/nuxt-piwik-pro/utils';
       
       ...
@@ -14,10 +14,10 @@
     </code>
   </pre>
   </div>
-  <UDivider label="OR" />
+  <div class="or-divider"><span>OR</span></div>
   <div>
     <pre>
-    <code class="lang-ts"> 
+    <code class="language-ts"> 
       const {$piwikPRO} = useNuxtApp(); 
       if($piwikPRO){ 
         // Safety use any of Piwik PRO service here. 

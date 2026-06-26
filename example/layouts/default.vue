@@ -3,6 +3,9 @@
 <template>
   <div>
     <NavigationMenuDrawer />
-    <slot />
+    <main class="main-content">
+      <slot />
+    </main>
+    <ToastStack />
   </div>
 </template>

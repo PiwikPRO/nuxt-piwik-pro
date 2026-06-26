@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 const pageData = {
   title: "PageViews",
   heading: "Send page views and virtual page views",
@@ -15,21 +13,16 @@ const pageData = {
   ],
 };
 
-const toastMessage = ref("");
-const isToastVisible = ref(false);
 const nuxtApp = useNuxtApp();
 
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  isToastVisible.value = true;
-};
+const { add: showToast } = useToast();
 </script>
 
 <template>
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>{{ pageData.title }}</h1>
     <p>{{ pageData.description }}</p>
     <h3>Methods:</h3>
@@ -37,7 +30,7 @@ const showToast = (message: string) => {
       <li v-for="method in pageData.methods" :key="method.method">
         <h4>{{ method.method }}</h4>
         <p>{{ method.desc }}</p>
-        <code class="lang-ts">{{ method.usage }}</code>
+        <code class="language-ts">{{ method.usage }}</code>
       </li>
     </ul>
     <h2>Sample usage</h2>
@@ -47,9 +40,9 @@ const showToast = (message: string) => {
     </p>
     <p>
       You can use methods from that collection in page props for example
-      <code class="lang-ts">onMounted()</code>
+      <code class="language-ts">onMounted()</code>
       (methods are invoked when the page starts) or as on example below on the
-      button click using <code class="lang-ts">@click</code>
+      button click using <code class="language-ts">@click</code>
       prop.
     </p>
     <button
@@ -65,9 +58,7 @@ const showToast = (message: string) => {
     >
       PageViews.trackPageView
     </button>
-  </UContainer>
-
-  <Toast v-model="isToastVisible" :message="toastMessage" />
+  </div>
 </template>
 
 <style scoped></style>

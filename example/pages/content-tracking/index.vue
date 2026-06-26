@@ -44,7 +44,7 @@ onMounted(() => {
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>{{ pageData.heading }}</h1>
     <p>{{ pageData.description }}</p>
     <ServicesUsageExample />
@@ -53,7 +53,7 @@ onMounted(() => {
       <li v-for="method in pageData.methods" :key="method.method">
         <h4>{{ method.method }}</h4>
         <p>{{ method.desc }}</p>
-        <code class="lang-ts"
+        <code class="language-ts"
           ><span>{{ method.usage }}</span></code
         >
       </li>
@@ -65,9 +65,9 @@ onMounted(() => {
     </p>
     <p>
       You can use methods from that collection in page props for example
-      <code class="lang-js">onMounted</code> (methods are invoked when the page
-      starts) or on the button click using
-      <code class="lang-js">@click</code> prop.
+      <code class="language-js">onMounted</code> (methods are invoked when the
+      page starts) or on the button click using
+      <code class="language-js">@click</code> prop.
     </p>
-  </UContainer>
+  </div>
 </template>

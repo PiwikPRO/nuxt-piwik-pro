@@ -31,7 +31,7 @@ const pageData = {
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>{{ pageData.heading }}</h1>
     <p>{{ pageData.description }}</p>
     <ServicesUsageExample />
@@ -40,11 +40,11 @@ const pageData = {
       <li v-for="method in pageData.methods" :key="method.method">
         <h4>{{ method.method }}</h4>
         <p>{{ method.desc }}</p>
-        <code class="lang-js">{{ method.usage }}</code>
+        <code class="language-js">{{ method.usage }}</code>
       </li>
     </ul>
     <ClientOnly fallback-tag="span" fallback="Loading...">
       <CustomDimensionResults />
     </ClientOnly>
-  </UContainer>
+  </div>
 </template>

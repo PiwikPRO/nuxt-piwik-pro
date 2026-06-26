@@ -4,9 +4,9 @@
   <Head>
     <Title>Piwik PRO example usage</Title>
   </Head>
-  <UContainer class="m-8">
+  <div class="home-content">
     <Navigation />
-  </UContainer>
+  </div>
 </template>
 
 <style scoped></style>

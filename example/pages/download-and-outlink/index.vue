@@ -68,7 +68,7 @@ const pageData = {
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>{{ pageData.heading }}</h1>
     <div>
       <p>{{ pageData.description }}</p>
@@ -80,10 +80,10 @@ const pageData = {
         <li v-for="method in pageData.methods" :key="method.method">
           <h4>{{ method.method }}</h4>
           <p>{{ method.desc }}</p>
-          <code class="lang-ts">{{ method.usage }}</code>
+          <code class="language-ts">{{ method.usage }}</code>
         </li>
       </ul>
       <DownloadAndOutlinkExamples />
     </article>
-  </UContainer>
+  </div>
 </template>

@@ -1,14 +1,7 @@
 <script lang="ts" setup>
-import Toast from "./Toast.vue";
 import { onMounted, ref } from "vue";
 
-const toastMessage = ref("");
-const isToastVisible = ref(false);
-
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  isToastVisible.value = true;
-};
+const { add: showToast } = useToast();
 
 const linkTrackingTimer = ref<string | number>("");
 
@@ -37,7 +30,10 @@ onMounted(() => {
     <h2>Examples results</h2>
     <div>
       <p>
-        <code class="lang-ts">DownloadAndOutlink.getLinkTrackingTimer()</code> -
+        <code class="language-ts"
+          >DownloadAndOutlink.getLinkTrackingTimer()</code
+        >
+        -
         {{ linkTrackingTimer }}
       </p>
     </div>
@@ -48,9 +44,9 @@ onMounted(() => {
     </p>
     <p>
       You can use methods from that collection in page props for example
-      <code class="lang-ts">onMounted</code> (methods are invoked when the page
-      starts) or as on example below on the button click using
-      <code class="lang-ts">@click</code> event.
+      <code class="language-ts">onMounted</code> (methods are invoked when the
+      page starts) or as on example below on the button click using
+      <code class="language-ts">@click</code> event.
     </p>
     <div>
       <button
@@ -216,5 +212,4 @@ onMounted(() => {
       download turned on by default using className
     </div>
   </div>
-  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>
