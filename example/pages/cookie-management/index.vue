@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref } from "vue";
 import { useNuxtApp } from "nuxt/app";
 
 const pageData = {
@@ -108,22 +107,16 @@ const pageData = {
   ],
 };
 
-const toastMessage = ref("");
-const isToastVisible = ref(false);
-
 const nuxtApp = useNuxtApp();
 
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  isToastVisible.value = true;
-};
+const { add: showToast } = useToast();
 </script>
 
 <template>
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>{{ pageData.heading }}</h1>
     <p>{{ pageData.description }}</p>
     <article>
@@ -133,7 +126,7 @@ const showToast = (message: string) => {
         <li v-for="method in pageData.methods" :key="method.name">
           <h4>{{ method.name }}</h4>
           <p>{{ method.desc }}</p>
-          <code class="lang-ts">{{ method.usage }}</code>
+          <code class="language-ts">{{ method.usage }}</code>
           <button
             class="btn"
             @click="
@@ -153,6 +146,5 @@ const showToast = (message: string) => {
         </li>
       </ul>
     </article>
-  </UContainer>
-  <Toast v-model="isToastVisible" :message="toastMessage" />
+  </div>
 </template>

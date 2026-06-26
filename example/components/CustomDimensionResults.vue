@@ -2,13 +2,8 @@
 import { onMounted, ref } from "vue";
 
 const customDimValue = ref<string>("");
-const toastMessage = ref("");
-const isToastVisible = ref(false);
 
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  isToastVisible.value = true;
-};
+const { add: showToast } = useToast();
 
 const { $piwikPRO } = useNuxtApp();
 
@@ -30,7 +25,7 @@ onMounted(() => {
     <h2>Examples results</h2>
     <div>
       <p>
-        <code class="lang-ts"
+        <code class="language-ts"
           >$piwikPRO.CustomDimensions.getCustomDimensionValue()</code
         >
         -
@@ -44,9 +39,9 @@ onMounted(() => {
     </p>
     <p>
       You can use methods from that collection in page props for example{' '}
-      <code class="lang-ts">onMounted</code> (methods are invoked when the page
-      starts) or as on example below on the button click using
-      <code class="lang-ts">@click</code> event.
+      <code class="language-ts">onMounted</code> (methods are invoked when the
+      page starts) or as on example below on the button click using
+      <code class="language-ts">@click</code> event.
     </p>
     <button
       class="btn"
@@ -85,5 +80,4 @@ onMounted(() => {
       CustomDimensions.deleteCustomDimension
     </button>
   </div>
-  <Toast v-model="isToastVisible" :message="toastMessage" />
 </template>

@@ -29,22 +29,28 @@ onMounted(() => {
   <Head>
     <Title>{{ pageData.title }}</Title>
   </Head>
-  <UContainer class="prose p-8">
+  <div class="page-content">
     <h1>User Management</h1>
     <article>
       <ServicesUsageExample />
       <h2>Examples results</h2>
       <div>
         <p>
-          <code class="lang-ts">$piwikPRO.UserManagement.getUserId()</code> -
+          <code class="language-ts">$piwikPRO.UserManagement.getUserId()</code>
+          -
           {{ userId }}
         </p>
         <p>
-          <code class="lang-ts">$piwikPRO.UserManagement.getVisitorId()</code> -
+          <code class="language-ts"
+            >$piwikPRO.UserManagement.getVisitorId()</code
+          >
+          -
           {{ visitorId }}
         </p>
         <p>
-          <code class="lang-ts">$piwikPRO.UserManagement.getVisitorInfo()</code>
+          <code class="language-ts"
+            >$piwikPRO.UserManagement.getVisitorInfo()</code
+          >
           -
           {{ JSON.stringify(visitorInfo) }}
         </p>
@@ -56,10 +62,10 @@ onMounted(() => {
       </p>
       <p>
         You can use methods from that collection in page props for example
-        <code class="lang-ts">onMounted</code> (methods are invoked when the
+        <code class="language-ts">onMounted</code> (methods are invoked when the
         page starts) or on the button click using
-        <code class="lang-ts">@click</code> prop.
+        <code class="language-ts">@click</code> prop.
       </p>
     </article>
-  </UContainer>
+  </div>
 </template>
