@@ -4,5 +4,16 @@
   "out": "docs_raw",
   "plugin": ["typedoc-plugin-markdown"],
   "readme": "docs/README_BASE.md",
-  "disableSources": true
+  "disableSources": true,
+  "outputFileStrategy": "modules",
+  "excludeScopesInPaths": true,
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "useCodeBlocks": false,
+  "indexFormat": "list",
+  "parametersFormat": "table",
+  "interfacePropertiesFormat": "table",
+  "propertyMembersFormat": "table",
+  "enumMembersFormat": "table",
+  "typeDeclarationFormat": "table"
 }

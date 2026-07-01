@@ -6,14 +6,9 @@ const file = readFileSync(README, "utf-8");
 
 const formattedOutput = file
   .split("\n")
-  // remove additional heading
+  // drop the redundant package-name index heading ("## @piwikpro/nuxt-piwik-pro")
   .filter((line) => !line.includes("# @piwikpro/nuxt-piwik-pro"))
-  // remove links suited for multi page documentation
-  .filter((line) => !line.includes("Exports"))
-  // remove duplicated header
-  .filter((line) => !line.includes("### Functions"))
-  // remove remove additional prefix
-  .map((line) => line.replace("Namespace: ", ""))
+  // promote the main title to a top-level heading
   .map((line) =>
     line.replace(
       "## Piwik PRO Library for Nuxt",
