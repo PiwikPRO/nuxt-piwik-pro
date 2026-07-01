@@ -12,15 +12,15 @@
     "build-piwik-nuxt": "cd ../ && npm run build && cd example/"
   },
   "dependencies": {
-    "@piwikpro/nuxt-piwik-pro": "file:../dist",
+    "@piwikpro/nuxt-piwik-pro": "file:..",
     "clipboard": "^2.0.11",
-    "nuxt": "^3.12.4",
+    "nuxt": "^4.4.8",
     "prismjs": "^1.29.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxt/eslint": "^1.16.0",
     "@types/node": "^20.14.2",
     "@types/prismjs": "^1.26.4",
     "typescript": "^5.4.5"
