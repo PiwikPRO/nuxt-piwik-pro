@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "test": "jest --passWithNoTests",
+    "version": "node scripts/bakeInVersion.js && auto-changelog -p && git add CHANGELOG.md src/version.ts",
     "build": "node scripts/bakeInVersion.js && tsc -b",
     "build:docs": "typedoc && concat-md --decrease-title-levels --start-title-level-at=2 docs_raw > README.md && node scripts/postProcessDocs.js",
     "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
@@ -53,6 +54,7 @@
     "@types/node": "^20.10.7",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
+    "auto-changelog": "^2.6.0",
     "concat-md": "^0.5.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
