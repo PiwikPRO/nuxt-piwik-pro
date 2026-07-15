@@ -9,12 +9,11 @@ on:
       - master
 
 jobs:
-  run-tests:
-    timeout-minutes: 30
+  checks:
+    timeout-minutes: 20
     runs-on: ubuntu-latest
 
     steps:
-      # Build library
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
       - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c
@@ -31,17 +30,9 @@ jobs:
       - name: Run library build
         run: npm run build
 
-      # Build and test example app
-      - name: Install example dependencies
-        run: cd example && npm ci
+      - name: Run unit tests
+        run: npm run test
 
-      - name: Run example build
-        run: cd example && npm run build
-
-      - name: Run example tests
-        run: cd example && npm run test
-
-      # Check documentation
       - name: Generate documentation
         run: yarn build:docs
 
@@ -52,12 +43,16 @@ jobs:
             exit 1
           fi
 
-  # Verify the library is compatible with both Nuxt 3 and Nuxt 4.
-  # Single job: the library is built once, then the example is rebuilt against
-  # each Nuxt major in sequence (overriding the version pinned in example).
   compatibility-tests:
     timeout-minutes: 30
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        nuxt: ['^3', '^4']
+
+    name: Example on Nuxt ${{ matrix.nuxt }}
 
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
@@ -67,18 +62,17 @@ jobs:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
-      # Build the library once (dist/ is consumed by the example install)
       - name: Install library dependencies
         run: npm ci
 
       - name: Run library build
         run: npm run build
 
-      # `npm install nuxt@<major>` (not `npm ci`) so it overrides the version
-      # pinned in example/package-lock.json. node_modules is wiped between legs
-      # to keep each Nuxt major isolated.
-      - name: Example on Nuxt 3
-        run: cd example && rm -rf node_modules && npm install nuxt@^3 && npm run build && npm run test
+      - name: Install example against Nuxt ${{ matrix.nuxt }}
+        run: cd example && rm -rf node_modules && npm install nuxt@${{ matrix.nuxt }}
 
-      - name: Example on Nuxt 4
-        run: cd example && rm -rf node_modules && npm install nuxt@^4 && npm run build && npm run test
+      - name: Install Playwright browser
+        run: cd example && npx playwright install --with-deps chromium
+
+      - name: Run e2e tests
+        run: cd example && npm run test:e2e
