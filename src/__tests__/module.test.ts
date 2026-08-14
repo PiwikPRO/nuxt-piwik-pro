@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
+import piwikProModule from "../module";
+
 const { addPlugin, warn } = vi.hoisted(() => ({
   addPlugin: vi.fn(),
   warn: vi.fn(),
@@ -10,8 +12,6 @@ vi.mock("nuxt/kit", () => ({
   addPlugin,
   useLogger: () => ({ warn }),
 }));
-
-import piwikProModule from "../module";
 
 type PiwikModule = {
   setup: (options: Record<string, unknown>, nuxt: unknown) => void;

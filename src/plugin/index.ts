@@ -3,7 +3,7 @@ import { defineNuxtPlugin, useRuntimeConfig, useState } from "nuxt/app";
 import PiwikPRO from "@piwikpro/tracking-base-library";
 import * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
 import { PIWIK_PRO_NONCE_STATE_KEY } from "../constants";
-import { PluginArgs, PiwikPROServicesType } from "../types";
+import type { PluginArgs, PiwikPROServicesType } from "../types";
 import { VERSION } from "../version";
 
 type PublicPiwikConfig = Omit<PluginArgs, "cspNonceBridge"> & {
