@@ -2,7 +2,7 @@ import "../schema";
 import { addPlugin, defineNuxtModule, useLogger } from "nuxt/kit";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
-import { PluginArgs } from "../types";
+import type { PluginArgs } from "../types";
 
 export default defineNuxtModule<PluginArgs>({
   meta: {

@@ -2478,4 +2478,4 @@ Defaults to 'dataLayer'
 
 ## default
 
-> **default**: `NuxtModule`\<[`PluginArgs`](#type-aliasespluginargsmd)\>
+> **default**: `NuxtModule`\<[`PluginArgs`](#type-aliasespluginargsmd), [`PluginArgs`](#type-aliasespluginargsmd), `false`\>

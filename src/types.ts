@@ -1,6 +1,6 @@
-import { InitOptions } from "@piwikpro/vue-piwik-pro";
-import * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
-import { NuxtApp } from "nuxt/schema";
+import type { InitOptions } from "@piwikpro/vue-piwik-pro";
+import type * as PiwikPROServices from "@piwikpro/vue-piwik-pro";
+import type { NuxtApp } from "nuxt/schema";
 
 export type PluginArgs = {
   containerId: string;
