@@ -5,6 +5,62 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0](https://github.com/PiwikPRO/nuxt-piwik-pro/compare/1.5.0...2.0.0)
+
+### Merged
+
+- chore: bump tracking-base-library [`#92`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/92)
+- chore(deps): bump minimatch, nuxt, @nuxt/eslint-config, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, eslint and eslint-plugin-vue [`#91`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/91)
+- Bump shell-quote from 1.8.4 to 1.10.0 [`#74`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/74)
+- chore(deps): bump nuxt from 4.4.8 to 4.5.1 in /example [`#85`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/85)
+- chore(deps): bump postcss from 8.5.16 to 8.5.26 in /example [`#84`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/84)
+- chore(deps): bump @nuxt/devtools from 3.2.4 to 3.4.1 in /example [`#88`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/88)
+- chore(deps): bump nanoid from 3.3.15 to 3.3.18 in /example [`#89`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/89)
+- chore(deps-dev): bump brace-expansion from 1.1.17 to 1.1.18 [`#83`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/83)
+- chore(deps): bump tar from 7.5.19 to 7.5.22 in /example [`#79`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/79)
+- chore(deps): bump svgo from 4.0.1 to 4.0.2 in /example [`#71`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/71)
+- chore(deps): bump svgo from 3.3.3 to 3.3.4 [`#72`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/72)
+- chore(deps-dev): bump brace-expansion from 1.1.11 to 1.1.17 [`#80`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/80)
+- ci: add pr title lint [`#81`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/81)
+- ci: remove yarn [`#77`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/77)
+- test: added unit and e2e tests [`#67`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/67)
+- chore: added Changelog [`#66`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/66)
+- Bump typedoc and update README [`#65`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/65)
+- Bump minimatch from 3.1.2 to 3.1.5 [`#63`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/63)
+- Bump eslint from 9.39.4 to 10.6.0 in /example [`#64`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/64)
+- Bump undici and nitropack [`#41`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/41)
+- Added nuxt compatibility check in CI [`#62`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/62)
+- Bump nuxt from 3.12.4 to 4.4.8 in /example [`#61`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/61)
+- Bump minimatch from 3.1.2 to 3.1.5 [`#59`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/59)
+- Bump rollup from 4.18.0 to 4.62.2 [`#57`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/57)
+- Bump devalue from 5.0.0 to 5.8.1 [`#50`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/50)
+- Remove unused dependencies [`#56`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/56)
+- Removed unnecessary dependencies from example [`#55`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/55)
+- Bump webpack from 5.92.1 to 5.94.0 [`#13`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/13)
+- Bump micromatch from 4.0.7 to 4.0.8 [`#14`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/14)
+- Bump launch-editor from 2.8.1 to 2.14.1 [`#42`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/42)
+- Bump ws from 8.18.0 to 8.21.0 [`#38`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/38)
+- Bump svgo from 3.3.2 to 3.3.3 [`#53`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/53)
+- Bump h3 from 1.12.0 to 1.15.11 [`#52`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/52)
+- Bump lodash from 4.17.21 to 4.18.1 [`#51`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/51)
+- Bump node-forge from 1.3.1 to 1.4.0 [`#46`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/46)
+- Bump flatted from 3.3.1 to 3.4.2 [`#43`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/43)
+- Bump defu from 6.1.4 to 6.1.7 [`#47`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/47)
+- Bump cross-spawn from 7.0.3 to 7.0.6 [`#49`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/49)
+- Bump nuxt from 3.12.1 to 3.12.4 in /example [`#44`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/44)
+- Bump nuxt from 3.12.2 to 3.12.4 [`#12`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/12)
+- Bump shell-quote from 1.8.1 to 1.8.4 [`#39`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/39)
+- Bump simple-git in example from 3.25.0 to 3.36.0 [`#40`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/40)
+- Bump simple-git from 3.25.0 to 3.36.0 [`#35`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/35)
+- Bump handlebars from 4.7.8 to 4.7.9 [`#34`](https://github.com/PiwikPRO/nuxt-piwik-pro/pull/34)
+
+### Commits
+
+- chore: rebuild docs [`efa393f`](https://github.com/PiwikPRO/nuxt-piwik-pro/commit/efa393fc648bfa1543f075d57615c561d943c901)
+- Updated node version in github workflows [`b09d197`](https://github.com/PiwikPRO/nuxt-piwik-pro/commit/b09d197b55bca73618b676aef9957e79a5e36c36)
+- Add/update SECURITY.md [`a262662`](https://github.com/PiwikPRO/nuxt-piwik-pro/commit/a2626621434a87d1921da2c590e7f3167fdedd2e)
+- Updated node version in github workflows [`ea6fa18`](https://github.com/PiwikPRO/nuxt-piwik-pro/commit/ea6fa188e45ee876bfe08d3fe81a5ab21d3b2e13)
+
 ## [1.5.0](https://github.com/PiwikPRO/nuxt-piwik-pro/compare/1.4.0...1.5.0) - 2026-05-07
 
 ### Merged
